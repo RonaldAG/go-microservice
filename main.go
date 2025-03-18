@@ -13,11 +13,11 @@ import (
 
 func main() {
 	l := log.New(os.Stdout, "product-api", log.Default().Flags())
-	hh := handlers.NewHello(l)
+	ph := handlers.NewProducts(l)
 	gh := handlers.NewGoodbye(l)
 
 	sm := http.NewServeMux()
-	sm.Handle("/", hh)
+	sm.Handle("/", ph)
 	sm.Handle("/goodbye", gh)
 	
 	
