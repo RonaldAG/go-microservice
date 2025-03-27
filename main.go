@@ -27,6 +27,7 @@ func main() {
 	
 	postRouter := sm.Methods(http.MethodPost).Subrouter()
 	postRouter.HandleFunc("/", ph.AddProduct)
+	postRouter.Use(ph.MiddlewareProductValidation)
 
 	server := &http.Server{
 		Addr: ":8080",
