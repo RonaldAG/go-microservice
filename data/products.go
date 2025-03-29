@@ -5,7 +5,6 @@ import (
 	"fmt"
 	"io"
 	"regexp"
-	"time"
 
 	"github.com/go-playground/validator/v10"
 )
@@ -17,9 +16,6 @@ type Product struct {
 	Description string  `json:"description"`
 	Price       float32 `json:"price" validate:"gt=0"`
 	SKU         string  `json:"sku" validate:"required,sku"`
-	CreatedOn   string  `json:"-"`
-	UpdatedOn   string  `json:"-"`
-	DeletedOn   string  `json:"-"`
 }
 
 func (p *Product) FromJSON(r io.Reader) error {
@@ -107,8 +103,6 @@ var productList = []*Product{
 		Description: "Frothy milk coffe",
 		Price:       2.45,
 		SKU:         "abc123",
-		CreatedOn:   time.Now().UTC().String(),
-		UpdatedOn:   time.Now().UTC().String(),
 	},
 	&Product{
 		ID:          2,
@@ -116,7 +110,5 @@ var productList = []*Product{
 		Description: "Short and strong coffe without milk",
 		Price:       1.99,
 		SKU:         "fjd34",
-		CreatedOn:   time.Now().UTC().String(),
-		UpdatedOn:   time.Now().UTC().String(),
 	},
 }
