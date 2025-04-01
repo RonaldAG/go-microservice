@@ -1,4 +1,5 @@
 # Go microservice
 
-This is a go microservice that contains:
-- API's Restful
+This project consist of:
+- Backend in Golang
+- Frontend in React
